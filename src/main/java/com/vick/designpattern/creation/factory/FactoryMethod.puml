@@ -1,0 +1,20 @@
+@startuml
+
+interface Product
+class Plane
+class Boat
+
+Product <|.down. Plane
+Product <|.down. Boat
+
+interface Factory
+class PlaneFactory
+class BoatFactory
+
+Factory <|.. PlaneFactory
+Factory <|.. BoatFactory
+
+Plane <.left. PlaneFactory
+Boat <.left. BoatFactory
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+
+abstract class AbstractFactory{
+    + createMouse() : Mouse
+    + createKeyBoard() : KeyBoard
+}
+
+interface Mouse{
+    + sayHi()
+}
+
+interface KeyBoard{
+    + sayHi()
+}
+
+class LenovoFactory{
+    + createMouse() : Mouse
+    + createBoard() : KeyBoard
+}
+
+class HuaWeiFactory{
+    + createMouse() : Mouse
+    + createBoard() : KeyBoard
+}
+
+AbstractFactory <|-- LenovoFactory
+AbstractFactory <|-- HuaWeiFactory
+
+class LenovoMouse
+class HuaWeiMouse
+class LenovoKeyBoard
+class HuaWeiKeyBoard
+
+Mouse <|.. LenovoMouse
+Mouse <|.. HuaWeiMouse
+KeyBoard <|.. LenovoKeyBoard
+KeyBoard <|.. HuaWeiKeyBoard
+
+LenovoFactory ..> LenovoKeyBoard
+LenovoFactory ..> LenovoMouse
+HuaWeiFactory ..> HuaWeiKeyBoard
+HuaWeiFactory ..> HuaWeiMouse
+
+@enduml

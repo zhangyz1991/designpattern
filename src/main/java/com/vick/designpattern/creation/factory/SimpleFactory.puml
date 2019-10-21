@@ -1,0 +1,21 @@
+@startuml
+
+interface Product{
+    + getProductName() : String
+}
+class Plane{
+    + getProductName() : String
+}
+class Boat{
+    + getProductName() : String
+}
+class SimpleFactory {
+    + createProduct() : Product
+}
+
+Product <|.. Plane
+Product <|. Boat
+Plane <. SimpleFactory
+Boat <. SimpleFactory
+
+@enduml
